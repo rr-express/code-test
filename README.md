@@ -2,16 +2,17 @@
 
 Congratulations on your progress in the interview process! We're looking forward to seeing your submission.
 
-# What We Look For
+## What We Look For
 
 This is not an exam! We're primarily looking at how you approach problem solving and the patterns and practices you use prefer to use when writing code.
 
-# Instructions
+## Instructions
 
 1. Use any programming language you are comfortable with. However, at R&R we predominantly use C#/React.
 2. Complete the prompt as best you can, keeping in mind that you will not be penalized for missing or leaving parts of the prompt incomplete.
 3. Focus on getting a small amount of working code, built to the standards you prefer.
 4. Please provide instructions on how to run your project.
+5. There is no time limit, but we recommend no longer than an hour or two.
 
 # Prompt - Word Search
 
