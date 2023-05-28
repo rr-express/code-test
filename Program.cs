@@ -4,6 +4,14 @@
 // 3. The words in the grid go left to right and top to bottom, 
 //    not right to left or bottom to top.
 // 
+// Example input:
+// LION
+// BEAR
+// FISH
+// BIRD
+// CAT
+// DAT
+// FACT
 
 WordSearchGameInput input = new WordSearchGameInput(5, 5);
 
@@ -33,38 +41,31 @@ input.AddChar('C', 4, 2);
 input.AddChar('T', 4, 3);
 input.AddChar('S', 4, 4);
 
-input.AddWord("LION");
-input.AddWord("BEAR");
-input.AddWord("FISH");
-input.AddWord("BIRD");
-input.AddWord("CAT");
-input.AddWord("DAT");
-input.AddWord("FACT");
+Console.WriteLine("--- WORD SEARCH GAME ---");
+Console.WriteLine("Rule: enter the word you want to search (letters only)");
+Console.WriteLine("      enter # to finish entering words");
+
+string? str = "#";
+
+do
+{
+    Console.WriteLine("Enter the word: ");
+    str = Console.ReadLine();
+
+    if (string.IsNullOrEmpty(str) || str.Contains("#"))
+        break;
+
+    input.AddWord(str.ToUpper());
+}
+while (!str.Contains("#"));
+
+Console.WriteLine("---------------------------");
+Console.WriteLine();
+Console.WriteLine("The words you entered are: ");
+Console.WriteLine(input.GetWordString());
+Console.WriteLine();
 
 WordSearchGameDomain domain = new WordSearchGameDomain(input);
 domain.Run();
 
-
-/*
-Trie trie = new Trie();
-trie.Add("ant");
-trie.Add("an");
-trie.Add("book");
-trie.Add("there");
-trie.Add("answer");
-trie.Add("by");
-trie.Add("bye");
-trie.Add("their");
-
-Console.WriteLine(trie.Contains("ant"));
-
-trie.Delete("ant");
-//Console.WriteLine(trie.Delete("ant"));
-Console.WriteLine(trie.Contains("ant"));
-trie.Delete("an");
-//Console.WriteLine(trie.Delete("an"));
-Console.WriteLine(trie.Contains("an"));
-trie.Delete("a");
-//Console.WriteLine(trie.Delete("a"));
-trie.Delete("by");
-*/
+Console.ReadKey();

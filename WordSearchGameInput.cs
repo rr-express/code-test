@@ -1,3 +1,5 @@
+using System.Text;
+
 class WordSearchGameInput
 {
     private HashSet<string> _wordSet = new HashSet<string>();
@@ -32,5 +34,17 @@ class WordSearchGameInput
     public void AddWord(string word)
     {
         _wordSet.Add(word);
+    }
+
+    public string GetWordString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (string word in _wordSet)
+        {
+            sb.Append(word + " ");
+        }
+
+        return sb.ToString();
     }
 }

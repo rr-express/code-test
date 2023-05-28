@@ -102,7 +102,6 @@ class WordSearchGameDomain
     {
         Console.WriteLine("The grid:");
         Console.WriteLine(output.GetGridString());
-        Console.WriteLine();
 
         Console.WriteLine("The words found:");
         Console.WriteLine(output.GetFoundWordString());
