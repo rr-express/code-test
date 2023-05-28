@@ -5,9 +5,9 @@ class Trie
         Root = new TrieNode();
     }
 
-    public TrieNode Root { get; set; }
+    public TrieNode Root { get; private set; }
 
-    public int Count { get; set; }
+    public int Count { get; private set; }
 
     public bool Contains(string key)
     {
@@ -37,11 +37,12 @@ class Trie
         }
 
         node.IsEnd = true;
+        Count++;
     }
 
-    public TrieNode Delete(string key)
+    public void Delete(string key)
     {
-        return Delete(Root, key, 0);
+        Delete(Root, key, 0);
     }
 
     private TrieNode Delete(TrieNode node, string key, int length)
@@ -59,7 +60,11 @@ class Trie
         else
         {
             char c = key[length];
-            node.Remove(c);
+            TrieNode child = node.Get(c);
+            child = Delete(child, key, length + 1);
+
+            if (child == null)
+                node.Remove(c);
         }
 
         // remove subtrie rooted at node if it is completely empty
@@ -79,11 +84,11 @@ class Trie
 
 class TrieNode
 {
-    private Dictionary<char, TrieNode> _children;
+    private Dictionary<char, TrieNode> _children = new Dictionary<char, TrieNode>();
 
     public TrieNode()
     {
-        _children = new Dictionary<char, TrieNode>();
+
     }
 
     public bool IsEnd { get; set; }

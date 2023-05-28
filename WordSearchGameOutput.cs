@@ -29,7 +29,18 @@ class WordSearchGameOutput
         _coordinates = new Coord();
     }
 
-    public override string ToString()
+    public void AddCoord(int rowIndex, int colIndex)
+    {
+        _coordinates.Add(rowIndex, colIndex);
+    }
+
+    public void MarkFoundWord(string word)
+    {
+        _wordFoundSet.Add(word);
+        _wordNotFoundSet.Remove(word);
+    }
+
+    public string GetGridString()
     {
         StringBuilder sb = new StringBuilder();
 
@@ -45,6 +56,26 @@ class WordSearchGameOutput
 
             sb.AppendLine();
         }
+
+        return sb.ToString();
+    }
+
+    public string GetFoundWordString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (string word in _wordFoundSet)
+            sb.Append(word + " ");
+
+        return sb.ToString();
+    }
+
+    public string GetNotFoundWordString()
+    {
+        StringBuilder sb = new StringBuilder();
+
+        foreach (string word in _wordNotFoundSet)
+            sb.Append(word + " ");
 
         return sb.ToString();
     }
