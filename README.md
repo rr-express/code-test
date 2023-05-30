@@ -24,19 +24,19 @@ Use the following grid of letters:
 
 ```
 L I O N F
-B E A R D
-I S H C A
-R D T I T
-F A C T S
+B E A R I
+I S H T S
+R D T A H
+D O G C S
 ```
 
 The answer key is as follows:
 
 - `LION`: first row, left to right
 - `BEAR`: second row, left to right
-- `FISH`: third row, left to right
-- `BIRD`: fourth row, left to right
-- `CAT`: third column, top to bottom
+- `FISH`: fourth column, top to bottom
+- `DOG`: fourth row, left to right
+- `CAT`: third column, bottom to top
 
 ## Acceptance Criteria
 
