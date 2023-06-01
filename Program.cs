@@ -3,6 +3,7 @@
 // 2. The input only contains upper case letters.
 // 3. The words in the grid go left to right and top to bottom, 
 //    not right to left or bottom to top.
+// 4. The letters are not sorted. Otherwise, I can use binary search.
 // 
 // Example input:
 // LION
@@ -55,7 +56,7 @@ do
     if (string.IsNullOrEmpty(str) || str.Contains("#"))
         break;
 
-    input.AddWord(str.ToUpper());
+    input.AddWord(str.Trim().ToUpper());
 }
 while (!str.Contains("#"));
 
@@ -65,7 +66,7 @@ Console.WriteLine("The words you entered are: ");
 Console.WriteLine(input.GetWordString());
 Console.WriteLine();
 
-WordSearchGameDomain domain = new WordSearchGameDomain(input);
-domain.Run();
+WordSearchGameLogic logic = new WordSearchGameLogic(input);
+logic.Run();
 
 Console.ReadKey();
